@@ -6,7 +6,7 @@ def insert_sort(li):
     # range 左闭右开
     for i in range(1, len(li)):   # i 表示每次抽牌的下标
         tmp = li[i]   # 抽牌的值
-        j = i-1   #手里拍的下标
+        j = i-1   #手里牌的下标
         while li[j]>tmp and j>=0:
             li[j+1] = li[j]
             j -= 1
