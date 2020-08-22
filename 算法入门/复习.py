@@ -72,7 +72,7 @@ def insert_sort(li):
     return li
 
 print(insert_sort(li))
-'''
+
 # 快速排序 > 划分交换排序
 def partition(li, left, right):
     tmp = li[left]
@@ -103,3 +103,96 @@ quick_sort(li, 0, len(li)-1)
 print(li)
 
 # 归并排序
+
+
+
+# 堆排序
+
+# 堆的向下调整
+def sift(li, low, high):
+
+    i = low
+    j = 2 * i + 1
+    tmp = li[i]
+
+    while j<=high:
+        # 指针切换到右节点
+        if j+1 <= high and li[j+1] > li[j]:
+            j = j+1
+
+        # 换位置
+        if li[j] > tmp:
+            li[i] = li[j]
+            i = j
+            j = 2*i + 1
+        else:
+            li[i] = tmp
+            break
+    else:
+        li[i] = tmp
+
+# 堆排序
+def heap_sort(li):
+
+    n = len(li)
+    # 子节点 找 父节点   下标-1//2
+    for i in range(n//2-1, -1, -1):
+        sift(li, i, n-1)
+
+
+    # 排序
+    for i in range(n-1, -1, -1):
+        li[0], li[i] = li[i], li[0]
+        sift(li, 0, i-1)
+
+
+print('堆排序')
+li = list(range(10))
+random.shuffle(li)
+print(li)
+
+heap_sort(li)
+print(li)
+
+'''
+
+# 快速排序 > 划分交换排序
+# 划分
+def partition(li, left, right):
+    tmp = li[left]
+    while left < right:
+        while left < right and li[right] > tmp:
+            right -= 1
+        li[left] = li[right]
+        while left<right and li[left] <= tmp:
+            left += 1
+        li[right] = li[left]
+    li[left] = tmp
+    return left
+
+def quick_sort(li, left, right):
+    if left < right:
+        mid = partition(li, left, right)
+        quick_sort(li, left, mid-1)
+        quick_sort(li, mid+1, right)
+
+
+print('快速排序')
+li = list(range(10))
+random.shuffle(li)
+print(li)
+quick_sort(li, 0, len(li)-1)
+print(li)
+
+
+
+
+
+
+
+
+
+
+
+
+
