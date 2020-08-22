@@ -1,5 +1,55 @@
 
-#归并排序
+#归并排序  时间复杂度  O(nlogn)
+
+# 假设左右已排序
+def merge(li, low, mid, high):
+    i = low
+    j = mid + 1
+
+    ltmp = []
+    while i<=mid and j<=high:
+        if li[i] < li[j]:
+            ltmp.append(li[i])
+            i += 1
+        else:
+            ltmp.append(li[j])
+            j += 1
+
+    # while 执行完，肯定有一部分没数了
+    while i <= mid:
+        ltmp.append(li[i])
+        i+=1
+
+    while j <= high:
+        ltmp.append(li[j])
+        j+=1
+
+    li[low:high+1] = ltmp
+
+#
+def merge_sort(li, low, high):
+
+    if low < high:
+        mid = (low + high) //2
+        merge_sort(li, low, mid)   # 递归左边
+        merge_sort(li, mid+1, high)    # 递归右边
+        merge(li, low, mid, high)
+        print(li[low:high+1])
+
+li = list(range(10))
+import random
+random.shuffle(li)
+print(li)
+merge_sort(li, 0, len(li)-1)
+print(li)
+
+
+
+
+
+'''
+
+#
 def merge_sort(li):
     n = len(li)
 
@@ -44,3 +94,4 @@ if __name__ == '__main__':
     li = [53, 26, 93, 17, 77, 31, 44, 55, 21]
     print(li)
     print(merge_sort(li))
+'''

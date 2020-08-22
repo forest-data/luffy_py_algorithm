@@ -164,9 +164,12 @@ def partition(li, left, right):
         while left < right and li[right] > tmp:
             right -= 1
         li[left] = li[right]
+        print(li)
         while left<right and li[left] <= tmp:
             left += 1
         li[right] = li[left]
+        print(li)
+        print('-' * 10)
     li[left] = tmp
     return left
 
@@ -177,9 +180,10 @@ def quick_sort(li, left, right):
         quick_sort(li, mid+1, right)
 
 
-print('快速排序')
-li = list(range(10))
-random.shuffle(li)
+# print('快速排序')
+# li = list(range(10))
+# random.shuffle(li)
+li = [5, 8, 6, 2, 1, 5, 0]
 print(li)
 quick_sort(li, 0, len(li)-1)
 print(li)
