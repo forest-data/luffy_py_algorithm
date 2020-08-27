@@ -1,6 +1,7 @@
 
 
-
+# 队列： 环形队列
+# 前指针，后指针，环形队列，队列范围
 class Queue:
     def __init__(self, size=100):
         self.queue = [0 for _ in range(size)]
