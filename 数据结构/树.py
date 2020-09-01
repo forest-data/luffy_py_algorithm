@@ -59,3 +59,4 @@ tree.cd('bin/')
 tree.mkdir('python/')
 
 print(tree.ls())
+print(tree.root.type)
