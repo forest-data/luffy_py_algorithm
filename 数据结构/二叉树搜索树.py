@@ -1,6 +1,4 @@
 from collections import deque
-
-
 class BiTreeNode:
     def __init__(self, data):
         self.data = data
