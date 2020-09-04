@@ -11,6 +11,8 @@ class BiTreeNode:
 # 二叉搜索树的操作：查询、插入、删除
 # 二叉搜索树：左<根<右
 # Binary search tree
+# 时间复杂度 O(logn)
+# 最坏情况下：二叉搜索树可能非常偏斜
 
 
 class BST:
@@ -62,6 +64,9 @@ class BST:
                     return
             else:
                 return
+
+
+
 
     # 前序遍历
     def pre_order(self, root):
@@ -195,3 +200,4 @@ print("")
 
 tree.delete(4)
 tree.in_order(tree.root)
+
